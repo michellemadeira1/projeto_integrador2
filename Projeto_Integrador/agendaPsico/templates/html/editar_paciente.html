@@ -1,0 +1,18 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <h3 style="margin-left: 6%;">Editar Paciente</h3>
+    <form method="post" class="formulário">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="Salvar">
+        <a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

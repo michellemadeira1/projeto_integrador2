@@ -1,0 +1,29 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <h3 style="margin: 2%;">Paciente Dados</h3>
+</div>
+
+
+{% for dado in dados %}
+<div class="card card_paciente_dados" style="width: 90%;">
+    <div class="card-body">
+      <h3 class="card-title">{{dado.nome_paciente}}</h3>
+      <h4 class="card-title">Nascimento: {{dado.nascimento_paciente}}</h4><br>
+      <h4 class="card-title">Telefone: {{dado.telefone_paciente}}</h4><br>
+      <h4 class="card-title">Responsável: {{dado.responsável}}</h4><br>
+      <h4 class="card-title">Início do Tratamento: {{dado.início_tratamento}}</h4><br>
+      <h4 class="card-title">Término do Tratamento: {{dado.término_tratamento}}</h4><br>
+      <h4 class="card-title">Endereço: {{dado.endereço}}, nº {{dado.número}}</h4><br>
+      <h4 class="card-title">{{dado.cidade}} / {{dado.estado}}</h4><br>
+      <a href="Editar_Paciente/{{dado.id}}" class="card-link">Editar</a>
+      <a href="Paciente_Excluir/{{dado.id}}" class="card-link">Excluir</a>
+    </div>
+  </div>
+
+{% endfor %}
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a></p>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div style="margin-left: 2%;">
+    <h3 style="margin-top: 2%;">Paciente</h3>
+    <form method="get">
+        <input type="text" name="search" placeholder="pesquisar" value="{{request.GET.search}}">    
+        <input type="submit" value="pesquisar">
+    </form>
+</div>
+
+{% for paciente in pacientes %}
+<div class="card card_paciente" style="width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{paciente.nome_paciente}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{paciente.nascimento.paciente}}</h6>
+      <a href="Paciente_Dados/{{paciente.id}}" class="card-link">Dados</a>
+      <a href="Anotação_Dados/{{paciente.id}}" class="card-link">Anotações</a>
+      <a href="Anotação_Nova/{{paciente.id}}" class="card-link">Criar Anotação</a>
+    </div>
+  </div>
+{% endfor %}
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'index' %}">Voltar</a></p>
+
+{% endblock %}
+
+
+<!--
+  <div style="margin-left: 3%;">
+    <p style="font-weight: bolder;">Nome Paciente</p>
+    <p><a href="Paciente_Dados/{{paciente.id}}">{{paciente.nome_paciente}}</a></p>
+    <br>
+</div>
+
+-->

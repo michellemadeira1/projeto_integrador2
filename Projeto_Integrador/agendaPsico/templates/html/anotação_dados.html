@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <h3 style="margin-left: 2%;">Anotação</h3>
+</div>
+
+{% for anotação in anotações %}
+<div class="card card_anotação" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{paciente.nome_paciente}}</h5>
+      <p class="card-text">{{anotação.registro}}</p>
+      <a href="Editar_Anotação/{{anotação.id}}" class="card-link">Editar</a>
+      <a href="Anotação_Excluir/{{anotação.id}}" class="card-link">Excluir</a>
+    </div>
+  </div>
+
+
+{% endfor %}
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a></p>
+
+{% endblock %}
